@@ -3,6 +3,7 @@
 A Python Discord bot to monitor and have some control over iPhone's connected to a Mac by USB.
 To be used along side RDM. 
 
+
 ## Features
 ---
 iPhone-Manager will generate a list of iPhones from your RDM manager SQLite database(s).
@@ -13,10 +14,8 @@ All config settings are in a YAML file.
 + Manage your iphone's by taking screenshot's and have them upload to Discord.
 + Have RDM rebuild and restart Pogo on an iPhone
 + Kill usbmuxd on the Mac (it will auto restart), which should have all iPhone's rebuild.
-+ Reboot your iPhone
++ Reboot or shutdown your iPhone
 + Take a screenshot of your Mac and upload to Discord
-+ Have the last X lines of a device log printed out in Discord
-+ Have the last X lines of a device log uploaded to Discord as a log file
 
 
 ### Prerequisites
@@ -31,8 +30,8 @@ psutil
 
 Xcode 10.2.1>
 
-
 You will also need libimobiledevice installed on the Mac.
+
 
 ### Troubleshooting libimobiledevice
 ---
@@ -52,38 +51,31 @@ Info from page
     brew install ideviceinstaller
     brew link --overwrite ideviceinstaller
 
+
 ### Getting started
 ---
-Install the Python3 requirements using pip3 install -r requirements.txt 
+Install the Python3 requirements using 
+`pip3 install -r requirements.txt`
 
 In config.yaml you will need to edit :
 
 * **Path to the database :** 
 *A Python list, use full path including filename and extension*
 
-* **Path to the device logs :** 
-*A Python list*
-
-* **Channel name :**
-*The channel you want the bot to post to*
+* **Discord Token :**
+*Enter your bot token*
 
 * **Discord Role :**
 *The role required by the user to control the bot*
 
-* **Loglines :**
-*How many lines the bot will printout in Discord - prints out 10 lines every 900ms*
-
-* **uploglines :**
-*How many lines the uploaded logfile will contain*
-
-* **Discord Token :**
-*Enter your bot token*
+* **Channel name :**
+*The channel you want the bot to post to*
 
 
 ### Starting the bot
 ---
 
-    sudo python3 iphone_manager.py
+`python3 iphone_manager.py`
 
 
 ### Usages 
@@ -106,6 +98,10 @@ In config.yaml you will need to edit :
 
 *Example : !reboot iphone-se1* &nbsp;  **or** &nbsp;  *!reboot 7ab3*
 
+**Shutdown iPhone**
+
+`!shutdown {device_id} or {device_name}`
+
 **Screenshot the Mac**
 
 `!mac grab`
@@ -114,22 +110,6 @@ In config.yaml you will need to edit :
 
 `!kill usb`
 
-**Have the last X lines of a device log printed out in Discord**
-
-`!log {device_id} or {device_name}`
-
-**Have the last X lines of a device log uploaded to Discord as a log file**
-
-`!uplog {device_id} or {device_name}`
-
 **Display the help**
 
 `!help`
-
-
-
-
-
-
-
-

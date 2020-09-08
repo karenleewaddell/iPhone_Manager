@@ -1,0 +1,11 @@
+# config.yaml file
+#
+# Copy and then edit this file. 
+# Set the path(s) for your devices database. Add bot token , role and channel 
+# (all are strings). Please don't use the Discord ID for role or channel.
+# Any user with the role set below can control the bot.
+
+paths: [ "/Users/Owner/iPhone_Manager/db.sqlite" ]
+token: "BOT_TOKEN"
+role: "YOUR_ROLE"  
+channel: "YOUR_CHANNEL"
