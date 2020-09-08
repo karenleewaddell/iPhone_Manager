@@ -18,7 +18,7 @@ All config settings are in a YAML file.
 + Take a screenshot of your Mac and upload to Discord
 
 
-### Prerequisites
+## Prerequisites
 ---
 iPhone Manager is made using Python3 and will require :
 
@@ -72,7 +72,7 @@ In config.yaml you will need to edit :
 *The channel you want the bot to post to*
 
 
-### Starting the bot
+## Starting the bot
 ---
 
 `python3 iphone_manager.py`
