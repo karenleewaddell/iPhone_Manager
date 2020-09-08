@@ -1,7 +1,7 @@
 # iPhone-Manager
 ---
 A Python Discord bot to monitor and have some control over iPhones connected to a Mac by USB.
-The current setup uses the devices database file created by the RDM-UIC manager.
+The current setup uses the devices SQLite database(s) file created by the RDM-UIC manager.
 
 
 ## Features
