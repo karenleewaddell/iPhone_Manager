@@ -1,12 +1,12 @@
 # iPhone-Manager
 ---
-A Python Discord bot to monitor and have some control over iPhone's connected to a Mac by USB.
-To be used along side RDM. 
+A Python Discord bot to monitor and have some control over iPhones connected to a Mac by USB.
+The current setup uses the devices database file created by the RDM-UIC manager.
 
 
 ## Features
 ---
-iPhone-Manager will generate a list of iPhones from your RDM manager SQLite database(s).
+iPhone_Manager will generate a list of iPhones from your RDM-UIC manager SQLite database(s).
 The list will contain the iPhone name, UUID and a generated ID for each iPhone.
 iPhone-Manager will only accept commands from the Discord role you set and only post in a channel you set.
 All config settings are in a YAML file.
@@ -35,11 +35,7 @@ You will also need libimobiledevice installed on the Mac.
 
 ### Troubleshooting libimobiledevice
 ---
-After install of libimobiledevice, check it's working. You can test by taking a screenshot on an iPhone. Connect the iPhone to your Mac and get it's UUID from Xcode, in terminal type:
-idevicescreenshot -u your-uuid-of-iphone  This will save a screenshot of the connected iPhone. If you get the error "Could not connect to lockdownd, error code -21" 
-please see https://github.com/google/ios-webkit-debug-proxy/issues/290
-
-Info from page
+After install of libimobiledevice, check it's working. You can test by taking a screenshot on an iPhone. Connect the iPhone to your Mac and get it's UUID from Xcode, in terminal type: `idevicescreenshot -u your-uuid-of-iphone`  This will save a screenshot of the connected iPhone. If you get the error "Could not connect to lockdownd, error code -21" follow these steps:
     
     brew update
     brew uninstall --ignore-dependencies libimobiledevice
@@ -50,6 +46,8 @@ Info from page
     brew link --overwrite libimobiledevice
     brew install ideviceinstaller
     brew link --overwrite ideviceinstaller
+
+(from https://github.com/google/ios-webkit-debug-proxy/issues/290)
 
 
 # Getting started
