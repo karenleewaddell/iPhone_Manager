@@ -52,7 +52,7 @@ Info from page
     brew link --overwrite ideviceinstaller
 
 
-### Getting started
+# Getting started
 ---
 Install the Python3 requirements using 
 `pip3 install -r requirements.txt`
