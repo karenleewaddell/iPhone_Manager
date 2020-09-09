@@ -111,7 +111,7 @@ async def kill_command(params, message):
 	params = ''.join(params)
 	if params == "usb":
 		name = ""
-		await message.channel.send("Trying to finding and Kill usbmuxd. If I find it I will let you know")
+		await message.channel.send("Trying to find and kill usbmuxd. If I find it I will let you know")
 		for proc in psutil.process_iter(): 
 
 			try:
@@ -122,7 +122,7 @@ async def kill_command(params, message):
 				if pinfo["name"] == "usbmuxd":
 					p = psutil.Process(pinfo["pid"])
 					p.kill()
-					await message.channel.send("Found and Killed it")
+					await message.channel.send("Found and killed it")
 					return
 
 	else:
@@ -141,7 +141,7 @@ async def mac_command(params, message):
 		cp = subprocess.run(["screencapture", "mac.jpg"], universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		
 		if cp.returncode == 0:
-			await message.channel.send("Taken a Mac Screengrab")
+			await message.channel.send("Taking a Mac screengrab")
 			await asyncio.sleep(1)
 			await message.channel.send(file=discord.File('mac.jpg'))
 
@@ -201,7 +201,6 @@ async def check_command(message_text,message):
 		return
 
 
-	
 client = discord.Client()
 @client.event
 async def on_ready():
