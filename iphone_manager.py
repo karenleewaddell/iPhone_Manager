@@ -26,7 +26,7 @@ command_list = [
          "**!help**",
          "Displays this list\n",
          "**!kill usb**",
-         "Finds the proccess ID for usbmuxd and kill's it\n",
+         "Finds the process ID for usbmuxd and kills it\n",
 	 "**!list iphones**", 
          "Lists the name and ID of all the available iphones\n",
 	 "**!mac grab**",
