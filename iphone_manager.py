@@ -23,19 +23,19 @@ class IPhone:
 		self.iphone_id = iphone_id
 #   A list of the commands
 command_list = [
-         "!help",
-         "Displays this list"	
-	 "!list iphones", 
-         "Lists the name and ID of all the available iphones\n",
-	 "!kill usb",
+         "**!help**",
+         "Displays this list\n",
+         "**!kill usb**",
          "Finds the proccess ID for usbmuxd and kill's it\n",
-	 "!mac grab",
+	 "**!list iphones**", 
+         "Lists the name and ID of all the available iphones\n",
+	 "**!mac grab**",
 	 "Takes a screengrab of your Mac and uploads that screengrab to discord\n",
-	 "!reboot {name of iphone} or !reboot {iphone ID}",
+	 "**!reboot {name of iphone}** or **!reboot {iphone ID}**",
 	 "Reboots an iPhone\n",
-         "!sc {name of iphone} or !sc {iphone ID}",
+         "**!sc {name of iphone}** or **!sc {iphone ID}**",
          "Screenshots an iphone and uploads that screenshot to discord\n",
-         "!shutdown {name of iphone} or !shutdown {iphone ID}",
+         "**!shutdown {name of iphone}** or **!shutdown {iphone ID}**",
          "Shutdowns an iPhone\n",
  ]
 
