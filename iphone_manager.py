@@ -23,20 +23,20 @@ class IPhone:
 		self.iphone_id = iphone_id
 #   A list of the commands
 command_list = [
-	"!sc {name of iphone} or !sc {iphone ID}",
-	 "Screenshots an iphone and uploads that screenshot to discord\n",
-	 "!list iphones", "Lists the name and ID of all the available iphones\n",
-	 "!kill usb","Finds the proccess ID for usbmuxd and kill's it\n",
+         "!help",
+         "Displays this list"	
+	 "!list iphones", 
+         "Lists the name and ID of all the available iphones\n",
+	 "!kill usb",
+         "Finds the proccess ID for usbmuxd and kill's it\n",
 	 "!mac grab",
 	 "Takes a screengrab of your Mac and uploads that screengrab to discord\n",
 	 "!reboot {name of iphone} or !reboot {iphone ID}",
 	 "Reboots an iPhone\n",
+         "!sc {name of iphone} or !sc {iphone ID}",
+         "Screenshots an iphone and uploads that screenshot to discord\n",
          "!shutdown {name of iphone} or !shutdown {iphone ID}",
          "Shutdowns an iPhone\n",
-	 "!reload {name of iphone} or !reload {iphone ID}",
-	 "Find's and kill's the PID for an iPhone's Xcode. Pogo will start again\n",
-	 "!help",
-	 "Displays this list"
  ]
 
 print("The iPhone Manager is ready!")
@@ -106,29 +106,6 @@ async def shutdown_command(params, message):
                         else:
                                 await message.channel.send("Sorry, something has gone wrong... is the device connected?")
 
-async def reload_command(params, message):
-	params = ''.join(params)
-	await message.channel.send("Can I get a reload")
-	for x in iphone_list:
-		if params == x.iphone_name or params == x.iphone_id:
-			a = x.iphone_name
-			b_device_uuid = x.device_uuid
-			for proc in psutil.process_iter(): 
-
-				try:
-					pinfo = proc.as_dict(attrs=['pid', 'name', 'cmdline'])
-				except psutil.NoSuchProcess:
-					pass
-				else:
-					if pinfo["name"] == "xcodebuild":
-						cmdline = " ".join(pinfo["cmdline"])
-						if (b_device_uuid) in cmdline:
-							p = psutil.Process(pinfo["pid"])
-							p.kill()
-							await message.channel.send("Yes, Done")
-							return
-
-	await message.channel.send("Something has gone wrong")
 
 async def kill_command(params, message):
 	params = ''.join(params)
@@ -191,7 +168,7 @@ async def screengrab_command(params, message):
 			cp = subprocess.run(["idevicescreenshot", "-u", b, "phone.jpg"], universal_newlines=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 			if cp.returncode == 0:
-				await message.channel.send("Taken a screenshot")
+				await message.channel.send("Taking a screenshot")
 				await asyncio.sleep(1)
 				await message.channel.send(file=discord.File('phone.jpg'))
 				return
@@ -207,7 +184,6 @@ command_dict = {
 "!sc": screengrab_command,
 "!help": help_command,
 "!reboot": reboot_command,
-"!reload": reload_command,
 "!shutdown": shutdown_command,
 "!mac": mac_command,
 "!list" : list_iphones_command,
